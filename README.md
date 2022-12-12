@@ -36,9 +36,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 <img src="https://i.imgur.com/GrGObwq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p> Within Azure the Domain Controller VM (Windows Server 2022) named “DC-1” was created (with a user name "chandy") along with a resources group("lab5-AD") at the same time. Then the Client VM (Windows 10) named “Client-1” was also created with the same resources group and Vnet that was previously created. The NIC private ip address for DC-1 was set to static by going to Virtual machines>DC-1>networking>ipconfig. 
+<p> Within Azure the Domain Controller VM (Windows Server 2022) named “DC-1” was created (with a user name "chandy") along with a resource group "lab5-AD") at the same time. Then the Client VM (Windows 10) named “Client-1” was also created and set under the same resources group and Vnet that was previously created. The NIC private ip address for DC-1 was set to static by going to Virtual machines>DC-1>networking>ipconfig. 
 
-Both VMs confirmed to be in the same region, resource group and has the same Vnet by checking the topology in network watcher.
+Both VMs confirmed to be in the same location/region, resource group, and has the same Vnet by checking the topology in network watcher.
 </p>
 <br />
 
@@ -46,9 +46,7 @@ Both VMs confirmed to be in the same region, resource group and has the same Vne
 <img src="https://i.imgur.com/bM2goLy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ensured Connectivity between the client and Domain Controller by Loggin to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping) using command promt. A "Request Timeoout" message was fixed by Logging nto the Domain Controller and enabled ICMP4 on the local windows Firewall by typing fw.msc (microsoft command console document)>inbound rules> sort by protcol>locate IMCP4 and enable the ones that are disabled.
-
-Checked back at Client-1, the ping succeed. 
+Ensured Connectivity between the client and Domain Controller by Loggin into Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping) using command promt. A "Request Timeout" indicated no reply. Logged back into the Domain Controller and enabled ICMP4 on the local windows Firewall by typing fw.msc (microsoft command console document)>inbound rules> sort by protcol>locate IMCP4 and enable the ones that are disabled. Checked back at Client-1, the ping was successful. 
 </p>
 <br />
 
@@ -75,10 +73,10 @@ Logged out of DC-1 and Logged back in as new Admin "Jane_admin".
 <p>
 <img src="https://i.imgur.com/u7dS12E.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>From the Azure Portal, Client-1’s DNS settings was set to the DC’s Private IP address by to going to Virtual machines>zClient-1>networking>DNS servers>.
+<p>From the Azure Portal, Client-1’s DNS settings was set to the DC’s Private IP address by to going to Virtual machines>Client-1>networking>DNS servers>.
  Restarted Client-1 From the Azure Portal.
  
-Logged into Client-1 (Remote Desktop) as the original local admin (Chandy) and joined it to the domain by going to start>system>rename PC>Domian> enter "mydomain.com" (computer restarted).
+Logged into Client-1 (Remote Desktop) as the orginal local admin (Chandy) and joined it to the domain by going to start>system>rename PC>Domain> enter "mydomain.com" (computer restarted).
 Logged into the Domain Controller (Remote Desktop) and verified Client-1 showed up in ADUC.
 </p>
 <br />
@@ -89,8 +87,7 @@ Logged into the Domain Controller (Remote Desktop) and verified Client-1 showed 
 <p>Login to DC-1 as jane_admin
 Logged into Client-1 and opened PowerShell_ise as an administrator.
 Created a new File and pasted the contents of the a script into it. Ran the script and watched the accounts being created in OU.
-attempted to log into Client-1 with one of the accounts (take note of the password in the script).
+attempted to log into Client-1 with one of the accounts.
  
- It was successful.
 </p>
 <br />
