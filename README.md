@@ -46,9 +46,9 @@ Both VMs confirmed to be in the same region, resource group and has the same Vne
 <img src="https://i.imgur.com/bM2goLy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ensured Connectivity between the client and Domain Controller by Loggin to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping) using command promt. A "Request Timeoout" message was popping up so i then Logged into the Domain Controller and enabled ICMP4 on the local windows Firewall by typing fw.msc (microsoft command console document)>inbound rules> sort by protcol>locate IMCP4 and enable the ones that are disabled.
+Ensured Connectivity between the client and Domain Controller by Loggin to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping) using command promt. A "Request Timeoout" message was fixed by Logging nto the Domain Controller and enabled ICMP4 on the local windows Firewall by typing fw.msc (microsoft command console document)>inbound rules> sort by protcol>locate IMCP4 and enable the ones that are disabled.
 
-Checked back at Client-1 to see the ping succeed. 
+Checked back at Client-1, the ping succeed. 
 </p>
 <br />
 
@@ -56,7 +56,7 @@ Checked back at Client-1 to see the ping succeed.
 <img src="https://i.imgur.com/CAcira7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Logged in to DC-1 and installed Active Directory Domain Services in  "Add roles and Features" in the Serever Manager (image above).
+Logged in to DC-1 and installed Active Directory Domain Services by "Add roles and Features" in the Serever Manager (image above).
  (At this stage it not not quite a Domain controler as yet until we set up a domain). The server was then promoted, a new forest was created "mydomain.com". DC-1 restarted. Logged back into DC-1 as new user "mydomain.com\chandy"
 </p>
 <br />
@@ -65,7 +65,7 @@ Logged in to DC-1 and installed Active Directory Domain Services in  "Add roles 
 <img src="https://i.imgur.com/StNJJLC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-In Active Directory Users and Computers (ADUC), Organizational Unit (OU) called “_EMPLOYEES” and “_ADMINS” were created by going Tools > users and computers > right click on mydomain > new > orginaztional Unit (image above).
+In Active Directory Users and Computers (ADUC), Organizational Unit (OU) called “_EMPLOYEES” and “_ADMINS” were created by going to Tools > users and computers > right click on mydomain > new > orginaztional Unit (image above).
 Within "_ADMINS" A new employee named “Jane Doe” was also created (same password) with the username of “jane_admin”
 and assigned to the “Domain Admins” Security Group by right clicking on the jane> properties > member of > add "domain Admins" > apply.
 Logged out of DC-1 and Logged back in as new Admin "Jane_admin".
