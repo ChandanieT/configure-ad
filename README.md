@@ -82,3 +82,15 @@ Logged into Client-1 (Remote Desktop) as the original local admin (Chandy) and j
 Logged into the Domain Controller (Remote Desktop) and verified Client-1 showed up in ADUC.
 </p>
 <br />
+
+<p>
+<img src="https://i.imgur.com/MVJg3Cm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>Login to DC-1 as jane_admin
+Logged into Client-1 and opened PowerShell_ise as an administrator.
+Created a new File and pasted the contents of the a script into it. Ran the script and watched the accounts being created in OU.
+attempted to log into Client-1 with one of the accounts (take note of the password in the script).
+ 
+ It was successful.
+</p>
+<br />
